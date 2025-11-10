@@ -2,8 +2,14 @@ using UnityEngine;
 
 public class LevelControl : MonoBehaviour
 {
+    public static LevelControl I;
     [SerializeField] Level[] listLevel;
     Level _curLevel;
+
+    private void Awake()
+    {
+        I = this;
+    }
 
     public void InitLevel()
     {
@@ -30,5 +36,10 @@ public class LevelControl : MonoBehaviour
         {
             _curLevel.Destroy();
         }
+    }
+
+    public void SelectBlock(Block block)
+    {
+        _curLevel.SelectBlock(block);
     }
 }

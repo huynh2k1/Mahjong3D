@@ -54,6 +54,7 @@ public class GameManager : MonoBehaviour
         levelCtrl.InitLevel();
         ui.Hide(UIType.Home);
         ui.Show(UIType.Game);
+        CameraCtrl.I.ResetCamera();
     }
 
     void ReplayGame()
@@ -70,14 +71,8 @@ public class GameManager : MonoBehaviour
 
     public void NextLevel()
     {
-        ChangeState(GameState.Play);
         levelCtrl.CheckIncreaseLevel();
-        levelCtrl.InitLevel();
-    }
-
-    void SwapBlock()
-    {
-
+        PlayGame();
     }
 
     public void ChangeState(GameState newState)

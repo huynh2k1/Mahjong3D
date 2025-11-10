@@ -28,7 +28,7 @@ public class Block : MonoBehaviour
 
     private void OnMouseDown()
     {
-        OnBlockClick?.Invoke(this);
+        LevelControl.I.SelectBlock(this);   
     }
 
     public void Normal()

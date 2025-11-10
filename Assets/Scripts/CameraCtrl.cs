@@ -22,6 +22,10 @@ public class CameraCtrl : MonoBehaviour
     private float distanceCurrent;
 
     private Vector3 lastMousePos;
+    private Quaternion initRotation;
+    private float initRotX;
+    private float initRotY;
+
 
     private void Awake()
     {
@@ -37,6 +41,25 @@ public class CameraCtrl : MonoBehaviour
         Vector3 angles = transform.eulerAngles;
         rotX = angles.y;
         rotY = angles.x;
+
+        // ✅ Lưu lại góc ban đầu
+        initRotation = transform.rotation;
+        initRotX = rotX;
+        initRotY = rotY;
+    }
+
+    // ✅ Reset góc xoay lẫn vị trí
+    public void ResetCamera()
+    {
+        // Reset góc xoay
+        rotX = initRotX;
+        rotY = initRotY;
+
+        // Reset khoảng cách
+        distanceCurrent = distanceDefault;
+
+        // Cập nhật lại vị trí
+        UpdateCameraPosition();
     }
 
     void Update()
