@@ -1,0 +1,5 @@
+D:/MyProjects/_OS/Mahjong3D/.utmp/RelWithDebInfo/t2f68543/arm64-v8a/CMakeFiles/edit_cache.dir
+D:/MyProjects/_OS/Mahjong3D/.utmp/RelWithDebInfo/t2f68543/arm64-v8a/CMakeFiles/rebuild_cache.dir
+D:/MyProjects/_OS/Mahjong3D/.utmp/RelWithDebInfo/t2f68543/arm64-v8a/GameActivity/CMakeFiles/game.dir
+D:/MyProjects/_OS/Mahjong3D/.utmp/RelWithDebInfo/t2f68543/arm64-v8a/GameActivity/CMakeFiles/edit_cache.dir
+D:/MyProjects/_OS/Mahjong3D/.utmp/RelWithDebInfo/t2f68543/arm64-v8a/GameActivity/CMakeFiles/rebuild_cache.dir

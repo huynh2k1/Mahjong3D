@@ -166,6 +166,7 @@ GameObject:
   - component: {fileID: 7038352300589787279}
   - component: {fileID: 5644898125451236974}
   - component: {fileID: 7164636668763134629}
+  - component: {fileID: 1466408047669061874}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -276,3 +277,28 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1466408047669061874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7779358891724115439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e561ea0fa36eb244aa470c2cb7502c5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetSizeOnEnable: 1
+  lightSweep: {fileID: 0}
+  sweepDuration: 0.75
+  delayEachLoop: 2.5
+  _lightSweepStartPos: {x: 0, y: 0}
+  scaleFrequently: 0
+  targetScale: {x: 1.2, y: 1.2}
+  delayScale: 2
+  scaleDuration: 0.5
+  scaleOnClick: 1
+  durationScale: 0.2
+  scales: -0.1
+  easeScaleClick: 7

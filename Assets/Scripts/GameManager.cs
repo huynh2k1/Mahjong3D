@@ -4,10 +4,12 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager I;
     [SerializeField] private UIManager ui;
+    [SerializeField] private LevelControl levelCtrl;
     public GameState CurState { get; private set; }
     private void Awake()
     {
         I = this;
+        Application.targetFrameRate = 60;
     }
 
     private void Start()
@@ -21,6 +23,10 @@ public class GameManager : MonoBehaviour
 
         GameUI.ClickHomeAction += HomeScene;
         GameUI.ClickReplayAction += ReplayGame; 
+
+        WinPU.ClickHomeAction += HomeScene;
+        WinPU.ClickReplayAction += ReplayGame;
+        WinPU.ClickNextAction += NextLevel;
     }
 
     private void OnDestroy()
@@ -29,28 +35,44 @@ public class GameManager : MonoBehaviour
 
         GameUI.ClickHomeAction -= HomeScene;
         GameUI.ClickReplayAction -= ReplayGame;
+
+        WinPU.ClickHomeAction -= HomeScene;
+        WinPU.ClickReplayAction -= ReplayGame;
+        WinPU.ClickNextAction -= NextLevel; 
     }
 
     void HomeScene()
     {
+        ChangeState(GameState.None);
         ui.Show(UIType.Home);
         ui.Hide(UIType.Game);
     }
 
     void PlayGame()
     {
+        ChangeState(GameState.Play);
+        levelCtrl.InitLevel();
         ui.Hide(UIType.Home);
         ui.Show(UIType.Game);
     }
 
     void ReplayGame()
     {
-
+        ChangeState(GameState.Play);
+        levelCtrl.InitLevel();
     }
 
-    void WinGame()
+    public void WinGame()
     {
+        ChangeState(GameState.None);
         ui.Show(UIType.Win);
+    }
+
+    public void NextLevel()
+    {
+        ChangeState(GameState.Play);
+        levelCtrl.CheckIncreaseLevel();
+        levelCtrl.InitLevel();
     }
 
     void SwapBlock()

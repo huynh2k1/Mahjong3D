@@ -23,16 +23,19 @@ public class WinPU : PU
 
     void HandleReplayAction()
     {
+        Hide();
         ClickReplayAction?.Invoke();
     }
 
     void HandleHomeAction()
     {
+        Hide();
         ClickHomeAction?.Invoke();
     }
 
     void HandleNextAction()
     {
+        Hide();
         ClickNextAction?.Invoke();
     }
 }

@@ -103,7 +103,11 @@ public class ReverseLevelGenerator : MonoBehaviour
         bool leftFree = (x - 1 < 0) || (grid[x - 1, y, z] == -1);
         bool rightFree = (x + 1 >= xSize) || (grid[x + 1, y, z] == -1);
 
-        return leftFree || rightFree;
+        bool frontFree = (z - 1 < 0) || (grid[x, y, z - 1] == -1);
+        bool backFree = (z + 1 >= zSize) || (grid[x, y, z + 1] == -1);
+
+        // Chỉ cần ít nhất 1 mặt nằm ngang được tự do
+        return leftFree || rightFree || frontFree || backFree;
     }
 
     void SpawnBlocks()
