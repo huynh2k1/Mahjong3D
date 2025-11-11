@@ -64,6 +64,9 @@ public class CameraCtrl : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.I.CurState != GameState.Play)
+            return;
+
         if (target == null)
         {
             return;

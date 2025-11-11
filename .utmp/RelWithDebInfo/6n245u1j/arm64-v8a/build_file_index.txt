@@ -1,0 +1,2 @@
+C:\Huynh\Unity\Projects\Mahjong3D\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\CMakeLists.txt
+C:\Huynh\Unity\Projects\Mahjong3D\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\CMakeLists.txt

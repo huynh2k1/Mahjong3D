@@ -14,6 +14,16 @@ public static class Data
         set => PlayerPrefs.SetInt("Score", value);
     }
 
+    public static int GetHighScoreAtLevel(int idLevel)
+    {
+        return PlayerPrefs.GetInt($"Level {idLevel}", 0);
+    }
+
+    public static void SetHighScoreAtLevel(int idLevel, int value)
+    {
+        PlayerPrefs.SetInt($"Level {idLevel}", value);
+    }
+
     public static bool Sound
     {
         get => PlayerPrefs.GetInt("Sound", 0) == 0 ? true : false;

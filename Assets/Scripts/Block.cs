@@ -28,6 +28,8 @@ public class Block : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (GameManager.I.CurState != GameState.Play)
+            return;
         LevelControl.I.SelectBlock(this);   
     }
 

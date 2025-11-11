@@ -388,7 +388,7 @@ public class Level : MonoBehaviour
         }
 
         SoundCtrl.I.PlaySound(TypeSound.MERGE);
-
+        GameManager.I.AddScore(50);
         // Hủy block
         block1.Destroy();
         block2.Destroy();

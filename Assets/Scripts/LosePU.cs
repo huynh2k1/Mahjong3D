@@ -2,30 +2,31 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class WinPU : PU
+public class LosePU : PU
 {
-    public override UIType Type => UIType.Win;
+    public override UIType Type => UIType.Lose;
 
-    [SerializeField] Button replay, home, next;
+    [SerializeField] Button replay, home;
+    [SerializeField] Text textScore;
+    [SerializeField] Text textHighScore;
 
     public static Action ClickReplayAction;
     public static Action ClickHomeAction;
-    public static Action ClickNextAction;
 
-    [SerializeField] Text textScore;
+
 
     protected override void Awake()
     {
         base.Awake();
         replay.onClick.AddListener(HandleReplayAction);
         home.onClick.AddListener(HandleHomeAction);
-        next.onClick.AddListener(HandleNextAction);
     }
 
     public override void Show()
     {
         base.Show();
         UpdateTextScore();
+        UpdateTextHighScore();
     }
 
     void HandleReplayAction()
@@ -40,14 +41,13 @@ public class WinPU : PU
         ClickHomeAction?.Invoke();
     }
 
-    void HandleNextAction()
-    {
-        Hide();
-        ClickNextAction?.Invoke();
-    }
-
     void UpdateTextScore()
     {
         textScore.text = $"Score: {Data.Score}";
+    }
+
+    void UpdateTextHighScore()
+    {
+        textHighScore.text = $"Best Score: {Data.Score}";
     }
 }

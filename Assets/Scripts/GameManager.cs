@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -6,6 +7,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private UIManager ui;
     [SerializeField] private LevelControl levelCtrl;
     [SerializeField] private GameUI gameUI;
+    [SerializeField] private TimeCtrl timeCtrl;
+    [SerializeField] private ScoreCtrl scoreCtrl;
     public GameState CurState { get; private set; }
     private void Awake()
     {
@@ -28,6 +31,9 @@ public class GameManager : MonoBehaviour
         WinPU.ClickHomeAction += HomeScene;
         WinPU.ClickReplayAction += ReplayGame;
         WinPU.ClickNextAction += NextLevel;
+
+        LosePU.ClickHomeAction += HomeScene;    
+        LosePU.ClickReplayAction += ReplayGame;
     }
 
     private void OnDestroy()
@@ -40,6 +46,9 @@ public class GameManager : MonoBehaviour
         WinPU.ClickHomeAction -= HomeScene;
         WinPU.ClickReplayAction -= ReplayGame;
         WinPU.ClickNextAction -= NextLevel; 
+
+        LosePU.ClickHomeAction -= HomeScene;
+        LosePU.ClickReplayAction -= ReplayGame;
     }
 
     void HomeScene()
@@ -51,16 +60,21 @@ public class GameManager : MonoBehaviour
 
     void PlayGame()
     {
+        scoreCtrl.InitScore();
         ChangeState(GameState.Play);
         levelCtrl.InitLevel();
         ui.Hide(UIType.Home);
         ui.Show(UIType.Game);
         gameUI.UpdateTextLevel();
         CameraCtrl.I.ResetCamera();
+        timeCtrl.StartCountDown();
     }
 
     void ReplayGame()
     {
+        ui.Show(UIType.Game);
+        scoreCtrl.InitScore();
+        timeCtrl.StartCountDown();
         gameUI.UpdateTextLevel();
         CameraCtrl.I.ResetCamera();
         ChangeState(GameState.Play);
@@ -69,9 +83,21 @@ public class GameManager : MonoBehaviour
 
     public void WinGame()
     {
-        SoundCtrl.I.PlaySound(TypeSound.WIN);
+        timeCtrl.StopCountDown();
         ChangeState(GameState.None);
-        ui.Show(UIType.Win);
+        ui.Hide(UIType.Game);
+        DOVirtual.DelayedCall(1f, () =>
+        {
+            SoundCtrl.I.PlaySound(TypeSound.WIN);
+            ui.Show(UIType.Win);
+        });
+    }
+
+    public void LoseGame()
+    {
+        timeCtrl.StopCountDown();
+        ChangeState(GameState.None);
+        ui.Show(UIType.Lose);
     }
 
     public void NextLevel()
@@ -83,6 +109,11 @@ public class GameManager : MonoBehaviour
     public void ChangeState(GameState newState)
     {
         CurState = newState;
+    }
+
+    public void AddScore(int score)
+    {
+        scoreCtrl.AddScore(score);
     }
 }
 
