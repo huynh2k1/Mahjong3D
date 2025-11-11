@@ -6,6 +6,7 @@ public class GameUI : UI
 {
     public override UIType Type => UIType.Game;
 
+    [SerializeField] Text textLevel;
     [SerializeField] Button home;
     [SerializeField] Button replay;
 
@@ -27,5 +28,10 @@ public class GameUI : UI
     void HandleClickReplay()
     {
         ClickReplayAction?.Invoke();
+    }
+
+    public void UpdateTextLevel()
+    {
+        textLevel.text = $"Level {Data.CurLevel + 1}";
     }
 }

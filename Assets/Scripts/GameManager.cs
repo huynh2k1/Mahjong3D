@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
     public static GameManager I;
     [SerializeField] private UIManager ui;
     [SerializeField] private LevelControl levelCtrl;
+    [SerializeField] private GameUI gameUI;
     public GameState CurState { get; private set; }
     private void Awake()
     {
@@ -54,17 +55,21 @@ public class GameManager : MonoBehaviour
         levelCtrl.InitLevel();
         ui.Hide(UIType.Home);
         ui.Show(UIType.Game);
+        gameUI.UpdateTextLevel();
         CameraCtrl.I.ResetCamera();
     }
 
     void ReplayGame()
     {
+        gameUI.UpdateTextLevel();
+        CameraCtrl.I.ResetCamera();
         ChangeState(GameState.Play);
         levelCtrl.InitLevel();
     }
 
     public void WinGame()
     {
+        SoundCtrl.I.PlaySound(TypeSound.WIN);
         ChangeState(GameState.None);
         ui.Show(UIType.Win);
     }

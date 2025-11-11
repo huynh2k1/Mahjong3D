@@ -286,10 +286,12 @@ public class Level : MonoBehaviour
     {
         if (!CanOut(block))
         {
+            SoundCtrl.I.PlaySound(TypeSound.INCORRECT);
             block.Shake();
             return;
         }
 
+        SoundCtrl.I.PlaySound(TypeSound.SELECTBLOCK);
         if (block1 == null)
         {
             block1 = block;
@@ -384,6 +386,8 @@ public class Level : MonoBehaviour
         {
             GameManager.I.WinGame();
         }
+
+        SoundCtrl.I.PlaySound(TypeSound.MERGE);
 
         // Hủy block
         block1.Destroy();

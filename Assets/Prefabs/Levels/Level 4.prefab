@@ -47,7 +47,7 @@ MonoBehaviour:
   xSize: 4
   ySize: 2
   zSize: 4
-  loadedData: {fileID: 11400000, guid: b4a12a8722507964cbf69482ce7b374f, type: 2}
+  loadedData: {fileID: 11400000, guid: cb4e9345c09576043b811d22109df682, type: 2}
   blockPrefabs:
   - {fileID: 6773460072484743300, guid: 2deef8e2435958c4fb34761351db3193, type: 3}
   - {fileID: 2697790125442117676, guid: ae3a9ca7f9e832a49a42d9406593fbac, type: 3}

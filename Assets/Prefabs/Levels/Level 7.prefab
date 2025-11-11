@@ -47,7 +47,7 @@ MonoBehaviour:
   xSize: 5
   ySize: 4
   zSize: 5
-  loadedData: {fileID: 11400000, guid: 2bec5efc464585849913f99f4f5f47e1, type: 2}
+  loadedData: {fileID: 11400000, guid: 2ef9df915f70f284b94ca604b672ac89, type: 2}
   blockPrefabs:
   - {fileID: 6773460072484743300, guid: 2deef8e2435958c4fb34761351db3193, type: 3}
   - {fileID: 2697790125442117676, guid: ae3a9ca7f9e832a49a42d9406593fbac, type: 3}
@@ -56,3 +56,8 @@ MonoBehaviour:
   - {fileID: 5542161812121546302, guid: debb7342dd8811c45b174d78ae48ffb0, type: 3}
   - {fileID: 2435454901583508188, guid: 9354cec81ca2c774489b0aae43da87be, type: 3}
   - {fileID: 2999085732686546495, guid: 74a02e17385b84d4b9fa6620db05dd6e, type: 3}
+  - {fileID: 2987129631815771217, guid: c5c1877d199adf9418716dfcbcdab51a, type: 3}
+  - {fileID: 62337128223460006, guid: f6117ac1effe0e5488e560da0d18d672, type: 3}
+  - {fileID: 5585450403033875832, guid: 52d239282ff1a1342a5506d1c1a6a35e, type: 3}
+  - {fileID: 3927902940560176491, guid: 8d9000da859b5ea4da71d65fe7e56235, type: 3}
+  - {fileID: 6461245145791596354, guid: 4250a7c86334dc14a82f839a1fd5224a, type: 3}
