@@ -2,12 +2,18 @@
 using NaughtyAttributes;
 using UnityEngine;
 
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 public class Level : MonoBehaviour
 {
     [Header("Kích thước level")]
     public int xSize = 3;
     public int ySize = 2;
     public int zSize = 3;
+
+    public LevelDataSO loadedData;
 
     [Header("Block prefab")]
     public Block[] blockPrefabs;
@@ -22,11 +28,59 @@ public class Level : MonoBehaviour
     public void InitLevel()
     {
         CameraCtrl.I.target = transform;
+        LoadLevel();
+    }
+    public void LoadLevel()
+    {
+        if (loadedData == null)
+        {
+            Debug.LogError("❌ No LevelData assigned!");
+            return;
+        }
+
+        xSize = loadedData.xSize;
+        ySize = loadedData.ySize;
+        zSize = loadedData.zSize;
+
+        grid = new int[xSize, ySize, zSize];
+
+        int index = 0;
+        for (int x = 0; x < xSize; x++)
+            for (int y = 0; y < ySize; y++)
+                for (int z = 0; z < zSize; z++)
+                    grid[x, y, z] = loadedData.gridData[index++];
+
+        SpawnBlocks();
     }
 
     #region LEVEL GENERATE
+
+
     [Button("Generate Level")]
-    public void GenerateLevelCanResolve()
+    public void GenerateAndSaveLevel()
+    {
+#if UNITY_EDITOR
+        GenerateLevelCanResolve(); // đã có grid
+
+        LevelDataSO data = ScriptableObject.CreateInstance<LevelDataSO>();
+        data.xSize = xSize;
+        data.ySize = ySize;
+        data.zSize = zSize;
+        data.gridData = new int[xSize * ySize * zSize];
+
+        for (int x = 0; x < xSize; x++)
+            for (int y = 0; y < ySize; y++)
+                for (int z = 0; z < zSize; z++)
+                    data.gridData[x + y * xSize + z * xSize * ySize] = grid[x, y, z];
+
+        AssetDatabase.CreateAsset(data, $"Assets/LevelData_{xSize}_{ySize}_{zSize}.asset");
+        AssetDatabase.SaveAssets();
+
+        Debug.Log("✅ Level saved as ScriptableObject!");
+#endif
+    }
+
+    void GenerateLevelCanResolve()
     {
         int totalTiles = xSize * ySize * zSize;
         if (totalTiles % 2 != 0)
@@ -72,7 +126,7 @@ public class Level : MonoBehaviour
             grid[p2.x, p2.y, p2.z] = sym;
         }
 
-        SpawnBlocks();
+        //SpawnBlocks();
         Debug.Log("🚀 Level generated fast!");
     }
 
