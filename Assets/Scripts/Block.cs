@@ -5,6 +5,7 @@ using UnityEngine;
 public class Block : MonoBehaviour
 {
     public int ID;
+    public int indexMat = 1;
     public Vector3Int gridPos;
     public GameObject model;
     [SerializeField] ParticleSystem _effect;
@@ -35,19 +36,19 @@ public class Block : MonoBehaviour
 
     public void Normal()
     {
-        meshRenderer.materials[1].color = normalColor;
+        meshRenderer.materials[indexMat].color = normalColor;
     }
 
     public void Hover()
     {
-        meshRenderer.materials[1].color = hoverColor;
+        meshRenderer.materials[indexMat].color = hoverColor;
     }
 
     public void Shake(float duration = 0.1f, float strength = 0.05f)
     {
         transform.DOKill(); // Ngăn animation cũ chồng lên
         Vector3 pos = transform.position;
-        meshRenderer.materials[1].color = inCorrectColor;
+        meshRenderer.materials[indexMat].color = inCorrectColor;
 
         // Shake theo vị trí (X,Z), khóa trục Y
         transform.DOShakePosition(duration,

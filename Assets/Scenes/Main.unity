@@ -2971,7 +2971,9 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1203946110602686299, guid: 265553a0efdce3d4192c97c95cc095e0, type: 3}
       propertyPath: m_Text
-      value: Click on 2 blocks with the same pattern to delete them
+      value: "How to pick a block: A block can be selected if at least one side (left
+        or right) is free, and at least one side (front or back) is free.\n <color=#0073FF>Click
+        on 2 blocks with the same pattern to delete them</color> \n"
       objectReference: {fileID: 0}
     - target: {fileID: 1203946110602686299, guid: 265553a0efdce3d4192c97c95cc095e0, type: 3}
       propertyPath: m_Color.b
@@ -2991,7 +2993,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1203946110602686299, guid: 265553a0efdce3d4192c97c95cc095e0, type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 69
+      value: 48
       objectReference: {fileID: 0}
     - target: {fileID: 5566901221203561212, guid: 265553a0efdce3d4192c97c95cc095e0, type: 3}
       propertyPath: m_Pivot.x
@@ -3019,7 +3021,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5566901221203561212, guid: 265553a0efdce3d4192c97c95cc095e0, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 800
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 5566901221203561212, guid: 265553a0efdce3d4192c97c95cc095e0, type: 3}
       propertyPath: m_SizeDelta.y
@@ -3562,7 +3564,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 146701616656197657, guid: abc3306673590154fafa393a9eb2fa72, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -270.9
+      value: -330
       objectReference: {fileID: 0}
     - target: {fileID: 2441955997474875752, guid: abc3306673590154fafa393a9eb2fa72, type: 3}
       propertyPath: m_Sprite
@@ -3655,6 +3657,22 @@ PrefabInstance:
     - target: {fileID: 3593353375382863454, guid: abc3306673590154fafa393a9eb2fa72, type: 3}
       propertyPath: m_SizeDelta.y
       value: 545
+      objectReference: {fileID: 0}
+    - target: {fileID: 3593353375382863454, guid: abc3306673590154fafa393a9eb2fa72, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3593353375382863454, guid: abc3306673590154fafa393a9eb2fa72, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3593353375382863454, guid: abc3306673590154fafa393a9eb2fa72, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3593353375382863454, guid: abc3306673590154fafa393a9eb2fa72, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5341867658090016961, guid: abc3306673590154fafa393a9eb2fa72, type: 3}
       propertyPath: m_Sprite

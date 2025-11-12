@@ -103,6 +103,10 @@ PrefabInstance:
       propertyPath: model
       value: 
       objectReference: {fileID: 6074205679499114597}
+    - target: {fileID: 1815036788631588552, guid: 25e7f25605c40454694a9531769e435c, type: 3}
+      propertyPath: indexMat
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2611125913231592272, guid: 25e7f25605c40454694a9531769e435c, type: 3}
       propertyPath: m_Name
       value: Block 8

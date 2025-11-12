@@ -68,11 +68,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 0
+  indexMat: 0
   gridPos: {x: 0, y: 0, z: 0}
   model: {fileID: 0}
   _effect: {fileID: 117741438203835750}
   normalColor: {r: 0.972549, g: 0.78431374, b: 0.6117647, a: 1}
-  hoverColor: {r: 1, g: 1, b: 1, a: 1}
+  hoverColor: {r: 0, g: 1, b: 0.19576454, a: 1}
   inCorrectColor: {r: 1, g: 0.2688679, b: 0.2688679, a: 1}
 --- !u!1001 &117741438184548126
 PrefabInstance:
